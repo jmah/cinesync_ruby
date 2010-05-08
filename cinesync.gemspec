@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "Samples/Export Notes to CSV.rb",
      "VERSION",
      "cineSync Session v3 Schema.rnc",
+     "cinesync.gemspec",
      "lib/cinesync.rb",
      "lib/cinesync/color_grading.rb",
      "lib/cinesync/event_handler.rb",
