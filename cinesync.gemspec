@@ -48,7 +48,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/jmah/cinesync}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Library for scripting the cineSync collaborative video review tool}
   s.test_files = [
     "test/helper.rb"
