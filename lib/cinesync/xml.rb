@@ -152,7 +152,7 @@ module CineSync
         m.notes = elem.elements['notes'].andand.text || ''
 
         elem.get_elements('annotation').each do |ann_elem|
-          FrameAnnotation.load(ann_elem, m)
+          m.annotations << FrameAnnotation.load(ann_elem)
         end
 
         # Load optional structures
@@ -424,9 +424,9 @@ module CineSync
     end
 
 
-    def self.load(elem, media)
-      returning media.annotations[elem.attribute('frame').value.to_i] do |ann|
-        ann.notes = elem.elements['notes'].andand.text || ann.notes
+    def self.load(elem)
+      returning self.new(elem.attribute('frame').value.to_i) do |ann|
+        ann.notes = elem.elements['notes'].andand.text || ''
         DrawingObjectElements.each do |obj_name|
           ann.drawing_objects += elem.get_elements(obj_name)
         end
