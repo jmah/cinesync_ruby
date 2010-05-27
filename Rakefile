@@ -17,6 +17,7 @@ begin
     gem.add_dependency "activesupport", ">= 2.3"
     gem.add_dependency "andand", ">= 1.3.1"
     gem.add_dependency "builder", ">= 2.1"
+    gem.add_development_dependency "bacon", ">= 1.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -25,18 +26,18 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+Rake::TestTask.new(:spec) do |spec|
+  spec.libs << 'lib' << 'spec'
+  spec.pattern = 'spec/**/*_spec.rb'
+  spec.verbose = true
 end
 
 begin
   require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
+  Rcov::RcovTask.new do |spec|
+    spec.libs << 'spec'
+    spec.pattern = 'spec/**/*_spec.rb'
+    spec.verbose = true
   end
 rescue LoadError
   task :rcov do
@@ -44,9 +45,9 @@ rescue LoadError
   end
 end
 
-task :test => :check_dependencies
+task :spec => :check_dependencies
 
-task :default => :test
+task :default => :spec
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
