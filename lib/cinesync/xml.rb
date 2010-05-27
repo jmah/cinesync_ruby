@@ -1,6 +1,5 @@
 require 'active_support'
 require 'andand'
-require 'builder'
 require 'rexml/document'
 require 'uri'
 

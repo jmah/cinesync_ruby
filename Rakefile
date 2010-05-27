@@ -16,7 +16,6 @@ begin
     gem.authors = ["Jonathon Mah", "Rising Sun Research"]
     gem.add_dependency "activesupport", ">= 2.3"
     gem.add_dependency "andand", ">= 1.3.1"
-    gem.add_dependency "builder", ">= 2.1"
     gem.add_development_dependency "bacon", ">= 1.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
