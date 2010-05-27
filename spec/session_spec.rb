@@ -38,4 +38,24 @@ describe "cineSync session" do
   it "should have an array of media" do
     @obj.media.should == []
   end
+
+  it "should set pro features with group movies" do
+    @obj.session_features.should == :standard
+    @obj.media << CineSync::GroupMovie.new(CineSync::AllFilesGroup)
+    @obj.session_features.should == :pro
+    @obj.media.delete_at(0)
+    @obj.session_features.should == :standard
+  end
+
+  it "should include children in validity" do
+    @obj.should.be.valid?
+    mf = CineSync::MediaFile.new
+    mf.should.not.be.valid?
+    @obj.media << mf
+    @obj.should.not.be.valid?
+    mf.name = "asdf"
+    mf.locator.path = "asdf.mov"
+    mf.should.be.valid?
+    @obj.should.be.valid?
+  end
 end
