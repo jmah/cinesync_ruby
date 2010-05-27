@@ -35,8 +35,8 @@ module CineSync
     end
   end
 
-  def self.event_handler
-    session = Session::load($stdin) rescue nil
-    yield CineSync::EventHandler.new(ARGV, session)
+  def self.event_handler(argv = ARGV, stdin = $stdin)
+    session = Session::load(stdin) rescue nil
+    yield CineSync::EventHandler.new(argv, session)
   end
 end
