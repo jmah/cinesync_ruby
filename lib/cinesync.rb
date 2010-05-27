@@ -1,7 +1,3 @@
-Dir["#{File.dirname(__FILE__)}/vendor/gems/**"].map do |dir|
-  $: << (File.directory?(lib = "#{dir}/lib") ? lib : dir)
-end
-
 require 'cinesync/session'
 require 'cinesync/media_file'
 require 'cinesync/play_range'
