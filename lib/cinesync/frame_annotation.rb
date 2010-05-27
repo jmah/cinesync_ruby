@@ -13,7 +13,7 @@ module CineSync
     end
 
     def valid?
-      frame >= 1
+      frame >= 1 rescue false
     end
   end
 end
