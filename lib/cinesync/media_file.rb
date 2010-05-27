@@ -100,7 +100,7 @@ module CineSync
         maybe_uri = URI::parse(s) rescue nil
 
         if File.exist? s
-          @path = s
+          @path = File.expand_path(s)
           @short_hash = CineSync::short_hash(@path)
         elsif maybe_uri and maybe_uri.scheme
           # The argument could be parsed as a URI (use it as a URL)
@@ -110,7 +110,12 @@ module CineSync
           @short_hash = s
         else
           # Finally, assume it's a file path
-          @path = s
+          if s =~ /^[A-Z]:[\\\/]/
+            # Looks like an absolute DOS path; let it through
+            @path = s
+          else
+            @path = File.expand_path(s)
+          end
         end
       end
     end

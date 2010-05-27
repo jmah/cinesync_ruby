@@ -58,4 +58,11 @@ describe "media locators" do
     ml.url.should.be.nil?
     ml.short_hash.should == hash
   end
+
+  it "should convert relative paths to absolute" do
+    rel_path = "../nonexist-test.mov"
+    abs_path = File.expand_path(rel_path)
+    ml = CineSync::MediaLocator.new(rel_path)
+    ml.path.should == abs_path
+  end
 end
