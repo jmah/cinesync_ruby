@@ -7,6 +7,7 @@ require 'cinesync/mask'
 require 'cinesync/color_grading'
 require 'cinesync/xml'
 require 'cinesync/event_handler'
+require 'cinesync/commands'
 require 'cinesync/ui'
 require 'digest'
 
