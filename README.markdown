@@ -14,7 +14,7 @@
     s = CineSync::Session.new
     s.media << CineSync::MediaFile.new("http://cinesync.com/files/sample_qt.mov")
     s.media << CineSync::MediaFile.new("/System/Library/Compositions/Fish.mov")
-    File.open("/tmp/session.csc", "w") {|f| f << s.to_xml }
+    CineSync::Commands.open_session! s
 
 
 ### Running in response to an event
