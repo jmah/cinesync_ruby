@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cinesync}
-  s.version = "0.9.6"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jonathon Mah", "Rising Sun Research"]
-  s.date = %q{2010-05-27}
+  s.date = %q{2010-05-28}
   s.description = %q{      This gem provides a Ruby interface to the cineSync session file format,
       which is used by cineSync's scripting system. Use it to integrate
       cineSync into your workflow.
@@ -25,12 +25,14 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.markdown",
      "Rakefile",
-     "Samples/Export Notes to CSV.rb",
      "VERSION",
      "cineSync Session v3 Schema.rnc",
      "cinesync.gemspec",
+     "examples/Export Notes to CSV.rb",
+     "examples/Start Session.rb",
      "lib/cinesync.rb",
      "lib/cinesync/color_grading.rb",
+     "lib/cinesync/commands.rb",
      "lib/cinesync/event_handler.rb",
      "lib/cinesync/frame_annotation.rb",
      "lib/cinesync/mask.rb",
@@ -43,8 +45,31 @@ Gem::Specification.new do |s|
      "lib/cinesync/ui/win32_save_file_dialog.rb",
      "lib/cinesync/xml.rb",
      "lib/cinesync/zoom_state.rb",
+     "spec/.bacon",
      "spec/cinesync_spec.rb",
-     "spec/spec_helper.rb"
+     "spec/event_handler_spec.rb",
+     "spec/frame_annotation_spec.rb",
+     "spec/media_file_spec.rb",
+     "spec/media_locator_spec.rb",
+     "spec/session_spec.rb",
+     "spec/small.txt",
+     "spec/spec_helper.rb",
+     "spec/v3 files/corrupt.csc",
+     "spec/v3 files/v3-Newer v4.csc",
+     "spec/v3 files/v3-Unsupported.csc",
+     "spec/v3 files/v3-active first.csc",
+     "spec/v3 files/v3-active second.csc",
+     "spec/v3 files/v3-active single.csc",
+     "spec/v3 files/v3-basic.csc",
+     "spec/v3 files/v3-groups.csc",
+     "spec/v3 files/v3-pro.csc",
+     "spec/v3 files/v3-refmovie.csc",
+     "spec/v3 files/v3-stereo-anaglyph-off.csc",
+     "spec/v3 files/v3-stereo-anaglyph.csc",
+     "spec/v3 files/v3-stereo-interlaced-off.csc",
+     "spec/v3 files/v3-stereo.csc",
+     "spec/v3 files/v3-url.csc",
+     "spec/xml_spec.rb"
   ]
   s.homepage = %q{http://github.com/jmah/cinesync}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -53,7 +78,15 @@ Gem::Specification.new do |s|
   s.summary = %q{Library for scripting the cineSync collaborative video review tool}
   s.test_files = [
     "spec/cinesync_spec.rb",
-     "spec/spec_helper.rb"
+     "spec/event_handler_spec.rb",
+     "spec/frame_annotation_spec.rb",
+     "spec/media_file_spec.rb",
+     "spec/media_locator_spec.rb",
+     "spec/session_spec.rb",
+     "spec/spec_helper.rb",
+     "spec/xml_spec.rb",
+     "examples/Export Notes to CSV.rb",
+     "examples/Start Session.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -63,18 +96,15 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, [">= 2.3"])
       s.add_runtime_dependency(%q<andand>, [">= 1.3.1"])
-      s.add_runtime_dependency(%q<builder>, [">= 2.1"])
       s.add_development_dependency(%q<bacon>, [">= 1.0"])
     else
       s.add_dependency(%q<activesupport>, [">= 2.3"])
       s.add_dependency(%q<andand>, [">= 1.3.1"])
-      s.add_dependency(%q<builder>, [">= 2.1"])
       s.add_dependency(%q<bacon>, [">= 1.0"])
     end
   else
     s.add_dependency(%q<activesupport>, [">= 2.3"])
     s.add_dependency(%q<andand>, [">= 1.3.1"])
-    s.add_dependency(%q<builder>, [">= 2.1"])
     s.add_dependency(%q<bacon>, [">= 1.0"])
   end
 end
