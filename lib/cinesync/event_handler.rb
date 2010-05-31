@@ -25,6 +25,7 @@ module CineSync
 
     def saved_frame_path(media_file, frame)
       return nil unless save_parent
+      return nil if media_file.annotations[frame].drawing_objects.empty?
 
       base = ('%s-%05d' % [media_file.name, frame])
       i = 1; p2 = nil
