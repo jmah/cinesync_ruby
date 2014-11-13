@@ -114,7 +114,7 @@ As above, adjust the path to the script, and the path to Ruby.
 
 ## Support
 
-If you have any questions using the cineSync Python library, or with the cineSync integration features in general, please contact [support@cinesync.com](mailto:support@cinesync.com).
+If you have any questions using the cineSync Ruby library, or with the cineSync integration features in general, please contact [support@cinesync.com](mailto:support@cinesync.com).
 
 ## Links
 
